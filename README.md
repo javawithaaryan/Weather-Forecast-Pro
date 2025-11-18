@@ -2,7 +2,7 @@
 
 A comprehensive, modern, and feature-rich weather prediction web application with advanced forecasting capabilities, interactive maps, data visualization, and smart alerts.
 
-**Made by Aryan Rathore**
+**Made by Aryan Rathore ❤️**
 
 ---
 
