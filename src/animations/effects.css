@@ -1,0 +1,63 @@
+@keyframes rain-fall {
+  0% { transform: translateY(-10vh) translateX(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  100% { transform: translateY(110vh) translateX(-20px); opacity: 0; }
+}
+
+@keyframes snow-fall {
+  0% { transform: translateY(-5vh) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.9; }
+  100% { transform: translateY(105vh) translateX(30px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes lightning-flash {
+  0%, 92%, 100% { opacity: 0; }
+  93% { opacity: 0.15; }
+  94% { opacity: 0; }
+  96% { opacity: 0.25; }
+  97% { opacity: 0; }
+}
+
+@keyframes sun-ray {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.05); }
+}
+
+.weather-rain-drop {
+  position: absolute;
+  width: 1px;
+  height: 18px;
+  background: linear-gradient(transparent, rgba(0, 184, 240, 0.5));
+  animation: rain-fall linear infinite;
+  pointer-events: none;
+}
+
+.weather-snow-flake {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  animation: snow-fall linear infinite;
+  pointer-events: none;
+}
+
+.weather-lightning-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(200, 220, 255, 0.08);
+  animation: lightning-flash 8s infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.weather-sun-rays {
+  position: absolute;
+  inset: -20%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255, 184, 0, 0.08) 15deg,
+    transparent 30deg
+  );
+  animation: sun-ray 6s ease-in-out infinite;
+  pointer-events: none;
+}
