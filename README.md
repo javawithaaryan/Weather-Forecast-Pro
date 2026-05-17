@@ -268,47 +268,6 @@ Weather-Forecast-Pro/
 
 ---
 
-## 📸 Screenshots & Visual Previews
-
-> [!NOTE]
-> Below are visualization representations of the UI dashboard layers. The live viewport has a high-fidelity glass refraction depth that looks spectacular on dark-mode OLED monitors.
-
-```
-+-----------------------------------------------------------------------------------+
-|  [☀️ Cloud Sync Icon] Weather Forecast Pro                          [GPS] [Settings]  |
-+-----------------------------------------------------------------------------------+
-|  GLOBAL WEATHER INTELLIGENCE SEARCH COMMAND                                       |
-|  [ Search any city worldwide...                         ]  [Search]  [My Location]  |
-+-----------------------------------------------------------------------------------+
-|                                        |                                          |
-|  [Live Sat-Com Feed]                   |  [Weather X AI]                          |
-|  SAN FRANCISCO                         |  "Hey there! Mostly clear skies make it  |
-|  Low humidity · UV 4                   |   a great day to step out. Dress lightly |
-|                                        |   and wear sunblock."                    |
-|  18°C  Feels like 18°C                 |                                          |
-|                                        |   [ Outfit tonight? ] [ Tahoe Viability? ]|
-|  +--------------+  +----------------+  |  +------------------------------------+  |
-|  | Wind 12 mph  |  | Moisture 45%   |  |  [🎙️] Ask Weather X AI...       [Send] |  |
-|  +--------------+  +----------------+  |  +------------------------------------+  |
-|                                        |                                          |
-+-----------------------------------------------------------------------------------+
-|  [Atmospheric Health]  |  [Tactical Timeline]         |  [System Alert]           |
-|  AQI: 42 (Excellent)   |  Now (18°)  2PM (20°) 3PM(22°)|  Potential Flash Fog      |
-|  PM2.5: 12  ·  O3: 24  |  =====================> Graph|  Visibility limit <0.5mi  |
-+-----------------------------------------------------------------------------------+
-|  [Orbital Forecast]    |  [Weather Intelligence Map]                              |
-|  Today: 12° / 18°      |  +----------------------------------------------------+  |
-|  Tomorrow: 11° / 17°   |  |                                                    |  |
-|  Wed: 9° / 15°         |  |             [ Leaflet Radar Engine ]               |  |
-|                        |  +----------------------------------------------------+  |
-+-----------------------------------------------------------------------------------+
-|  [Environmental Wellness Dashboard]                                               |
-|  Wellness Score: 85 (Excellent) · Peak Commute Comfort & Optimal Oxygenation      |
-+-----------------------------------------------------------------------------------+
-```
-
----
-
 ## 🚢 Production Deployment Guide
 
 Weather Forecast Pro includes routing redirects optimized for Single-Page Applications deployed on modern platforms.
