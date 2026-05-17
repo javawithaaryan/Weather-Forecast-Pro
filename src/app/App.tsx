@@ -48,7 +48,7 @@ function Dashboard() {
       <WeatherReactiveBackground condition={current.condition} isNight={current.isNight} />
       <Header />
 
-      <main className="container mx-auto px-6 md:px-10 pt-28 md:pt-32 flex flex-col gap-10 max-w-[1600px]">
+      <main className="container mx-auto px-4 sm:px-6 md:px-10 pt-28 md:pt-32 flex flex-col gap-10 max-w-[1600px]">
         <SearchCommandCenter />
 
         <section className="grid grid-cols-1 xl:grid-cols-12 gap-8" id="hero">
@@ -92,7 +92,7 @@ function Dashboard() {
 
       <BottomNavigation />
 
-      <footer className="container mx-auto px-10 py-12 text-center flex flex-col items-center gap-4 opacity-50">
+      <footer className="container mx-auto px-4 sm:px-6 md:px-10 py-12 text-center flex flex-col items-center gap-4 opacity-50">
         <div className="flex items-center gap-3 bg-white/5 px-6 py-2 rounded-full border border-white/10">
           <span className="w-2 h-2 rounded-full bg-neon-cyan animate-pulse" />
           <span className="text-[10px] text-neon-cyan font-bold tracking-[0.35em] uppercase">
