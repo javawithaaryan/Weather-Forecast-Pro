@@ -92,6 +92,10 @@ function fallbackResponse(prompt: string, ctx: AiContext): string {
     return `Air quality in ${w.city} is ${a.level} (index ${a.aqi}/5). PM2.5: ${a.pm25} μg/m³. ${a.aqi >= 3 ? 'Limit strenuous outdoor time.' : 'Suitable for most outdoor activities.'}`;
   }
 
+  if (p.includes('health') || p.includes('wellness') || p.includes('skin') || p.includes('allergy') || p.includes('advice')) {
+    return `Wellness Report for ${w.city}: The AQI index is ${a.aqi}/5 with PM2.5 at ${a.pm25} μg/m³. UV radiation is ${w.uvIndex || 'moderate'}. We advise ${a.aqi >= 3 ? 'restricting strenuous cardio outdoor routines' : 'an active outdoor training day'} and applying ${w.uvIndex && w.uvIndex >= 6 ? 'SPF 50 shielding' : 'light moisturizer with SPF 30'}.`;
+  }
+
   return `${w.city} is ${w.temp}°C, ${w.description}. Humidity ${w.humidity}%, wind ${w.windSpeed} km/h. AQI is ${a.level}. Ask about outfits, travel, rain, or outdoor plans!`;
 }
 
