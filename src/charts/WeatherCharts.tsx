@@ -14,6 +14,8 @@ import {
 import { Line, Bar } from 'react-chartjs-2';
 import type { ChartPoint, DailyChartPoint } from '@/weather/types';
 
+import { useWeather } from '@/context/WeatherContext';
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -51,12 +53,15 @@ const chartOptions = {
 };
 
 export function WeatherCharts({ hourly, daily }: WeatherChartsProps) {
+  const { unit } = useWeather();
+  const tempLabel = `Temp (${unit === 'c' ? '°C' : '°F'})`;
+
   const hourlyData = useMemo(
     () => ({
       labels: hourly.map((h) => h.label),
       datasets: [
         {
-          label: 'Temp (°C)',
+          label: tempLabel,
           data: hourly.map((h) => h.temp),
           borderColor: '#00f2ff',
           backgroundColor: 'rgba(0, 242, 255, 0.12)',
@@ -74,7 +79,7 @@ export function WeatherCharts({ hourly, daily }: WeatherChartsProps) {
         },
       ],
     }),
-    [hourly],
+    [hourly, tempLabel],
   );
 
   const dailyData = useMemo(
