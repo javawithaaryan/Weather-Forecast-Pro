@@ -120,6 +120,14 @@ export function generateHealthInsights(
       severity: 'good',
       category: 'Activity',
     });
+  } else if (weather.condition === 'rainy' || weather.condition === 'thunderstorm' || weather.temp > 35 || weather.temp < 2) {
+    insights.push({
+      id: 'indoor',
+      title: 'Fitness Advisory',
+      message: 'Sub-optimal outdoor environments — recommend home stretching, core work, or indoor yoga sessions today.',
+      severity: 'moderate',
+      category: 'Activity',
+    });
   }
 
   if (weather.humidity > 70 && weather.temp > 28) {
