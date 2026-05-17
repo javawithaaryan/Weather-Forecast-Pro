@@ -8,7 +8,7 @@ import { SevenDayForecast } from './components/SevenDayForecast';
 import { AirQuality } from './components/AirQuality';
 import { WeatherAlerts } from './components/WeatherAlerts';
 import { BottomNavigation } from './components/BottomNavigation';
-import { SearchCommandCenter } from '@/components/SearchCommandCenter';
+import { SearchCommandCenter } from './components/SearchCommandCenter';
 import { HealthIntelligence } from '@/health/HealthIntelligence';
 import { WeatherXAI } from '@/ai/WeatherXAI';
 import { WeatherMap } from '@/maps/WeatherMap';
