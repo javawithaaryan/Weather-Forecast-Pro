@@ -80,25 +80,29 @@ export function WeatherReactiveBackground({
     resize();
     let frame: number;
 
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p) => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-        if (p.x < 0 || p.x > canvas.width || p.y < 0 || p.y > canvas.height) {
-          p.x = Math.random() * canvas.width;
-          p.y =
-            condition === 'rainy' || condition === 'snowy'
-              ? -10
-              : Math.random() * canvas.height;
-        }
-        ctx.fillStyle = `${p.color} ${p.opacity})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, condition === 'snowy' ? p.size * 2 : p.size, 0, Math.PI * 2);
-        ctx.fill();
-      });
-      frame = requestAnimationFrame(animate);
-    };
+      const time = { current: 0 };
+      const animate = () => {
+        time.current += 0.015;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          // Add cinematic sway to snow drift
+          const sway = condition === 'snowy' ? Math.sin(time.current + p.y * 0.01) * 0.25 : 0;
+          p.x += p.speedX + sway;
+          p.y += p.speedY;
+          if (p.x < -10 || p.x > canvas.width + 10 || p.y < -10 || p.y > canvas.height + 10) {
+            p.x = Math.random() * canvas.width;
+            p.y =
+              condition === 'rainy' || condition === 'snowy'
+                ? -10
+                : Math.random() * canvas.height;
+          }
+          ctx.fillStyle = `${p.color} ${p.opacity})`;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, condition === 'snowy' ? p.size * 2 : p.size, 0, Math.PI * 2);
+          ctx.fill();
+        });
+        frame = requestAnimationFrame(animate);
+      };
 
     animate();
     window.addEventListener('resize', resize);
