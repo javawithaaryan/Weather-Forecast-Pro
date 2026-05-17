@@ -92,12 +92,15 @@ export function useVoiceAssistant({ onTranscript }: UseVoiceAssistantOptions = {
     if (!('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
     
-    // Clean markdown bold, asterisks and special characters for natural speech
+    // Clean markdown bold, asterisks, URLs, emoji shortcodes and special characters for natural speech
     const cleanText = text
       .replace(/\*\*/g, '')
       .replace(/\*/g, '')
       .replace(/#/g, '')
-      .replace(/`([^`]+)`/g, '$1');
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/:\w+:/g, '')
+      .replace(/[-_~]/g, ' ');
 
     const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.rate = 1.1; // Slightly faster for high-energy cute speech
