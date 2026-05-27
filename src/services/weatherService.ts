@@ -18,8 +18,7 @@ import {
   mapWeatherIcon,
 } from '@/utils/weatherHelpers';
 
-const API_KEY =
-  import.meta.env.VITE_OPENWEATHER_API_KEY || '78c23b8cf7cbbb4ee3f94a28a23e7fd1';
+const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY || '';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
 export type { CurrentWeather, HourlyForecast, DailyForecast, AirQuality, WeatherBundle };
