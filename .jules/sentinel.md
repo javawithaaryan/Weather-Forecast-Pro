@@ -1,4 +1,4 @@
 ## 2026-05-29 - Hardcoded API Key Fallback
-**Vulnerability:** A hardcoded OpenWeatherMap API key ('78c23b8cf7cbbb4ee3f94a28a23e7fd1') was present as a fallback in `src/services/weatherService.ts`.
+**Vulnerability:** A hardcoded OpenWeatherMap API key was present as a fallback in `src/services/weatherService.ts`.
 **Learning:** Developers sometimes include functional keys as fallbacks for development convenience, which risks leaking secrets into source control and production.
 **Prevention:** Always use environment variables for secrets and implement presence validation that fails fast with a clear error message if the key is missing.
