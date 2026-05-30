@@ -18,8 +18,7 @@ import {
   mapWeatherIcon,
 } from '@/utils/weatherHelpers';
 
-const API_KEY =
-  import.meta.env.VITE_OPENWEATHER_API_KEY || '78c23b8cf7cbbb4ee3f94a28a23e7fd1';
+const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
 export type { CurrentWeather, HourlyForecast, DailyForecast, AirQuality, WeatherBundle };
@@ -228,6 +227,9 @@ export function evaluateAlerts(
 }
 
 export async function fetchWeatherByCity(city: string): Promise<WeatherBundle> {
+  if (!API_KEY) {
+    throw new Error('OpenWeatherMap API key is missing. Please check your .env file.');
+  }
   const weatherRes = await axios.get<OwmWeatherResponse>(`${BASE_URL}/weather`, {
     params: { q: city, appid: API_KEY, units: 'metric' },
   });
@@ -242,6 +244,9 @@ export async function fetchWeatherByCoords(
   lon: number,
   existingWeather?: OwmWeatherResponse,
 ): Promise<WeatherBundle> {
+  if (!API_KEY) {
+    throw new Error('OpenWeatherMap API key is missing. Please check your .env file.');
+  }
   const [weatherData, forecastRes, aqiRes] = await Promise.all([
     existingWeather
       ? Promise.resolve(existingWeather)
@@ -296,6 +301,9 @@ export function getDefaultAlertSettings(): AlertSettings {
 }
 
 export async function searchCities(query: string): Promise<Array<{ name: string; country: string }>> {
+  if (!API_KEY) {
+    throw new Error('OpenWeatherMap API key is missing. Please check your .env file.');
+  }
   if (!query.trim()) return [];
   const res = await axios.get<
     Array<{ name: string; country: string; state?: string }>
